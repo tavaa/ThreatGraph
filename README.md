@@ -1,137 +1,109 @@
-# ThreatGraph-LD
+# ThreatGraph
 
-Unify four **open cyber-threat datasets** into one documented, versioned and FAIR-oriented data system
-(Advanced Data Management course project, LM DSAI, UniTS).
+**FAIR-oriented data management of exploited vulnerabilities.**
 
-| Source | What it is | Pinned version |
+Course project for *Advanced Data Management* — MSc Data Science and Artificial Intelligence, University of Trieste (UniTS).
+
+## Description
+
+ThreatGraph integrates four open cyber-threat datasets into one documented, versioned and FAIR-oriented data system. The goal is to make every link between the sources **traceable, versioned and reusable**.
+
+| Source | Content | Pinned version |
 |---|---|---|
-| **KEV** (CISA) | Vulnerabilities known to be exploited | catalog 2025.07.28 (1,391 CVEs) |
-| **NVD** (NIST, via community mirror) | Full CVE description, CVSS, CWE, references | tag `v2025.07.28-000002` |
-| **ATT&CK** (MITRE) | Attacker techniques/tactics, STIX 2.1 | Enterprise 16.1 |
-| **PKEV** (CTID Mappings Explorer) | Expert mapping KEV CVE → ATT&CK technique | kev-07.28.2025 + attack-16.1 |
+| **KEV** (CISA) | Vulnerabilities known to be exploited (scope of the project) | catalog 2025.07.28 (1,391 CVEs) |
+| **NVD** (NIST, community mirror) | CVE description, CVSS, CWE | tag `v2025.07.28-000002` |
+| **ATT&CK** (MITRE) | Attacker tactics and techniques | Enterprise 16.1 |
+| **PKEV** (CTID Mappings Explorer) | Expert mapping CVE → ATT&CK technique | kev-07.28.2025 + attack-16.1 |
 
-**Status: Phase 1 of 6 implemented and validated. Phases 2–6 are conceptual (stubs only).**
+Main features:
 
----
+- Reproducible download: sources pinned to a commit, SHA-256 checks, provenance manifest.
+- Documented cleaning rules, with validation checks and negative tests.
+- Relational model implemented with Django and SQLite.
+- Read-only REST API (Django REST framework) with JSON and JSON-LD output (DCAT and PROV metadata).
+- Hashed, read-only snapshots (`content_id` = SHA-256), inspired by the OAIS reference model.
+- Interoperability example: merging ThreatGraph with two (simulated) third-party sources through SPARQL.
 
-## Project phases
+> **Note.** The SOC incident register and the patch tracker used in the interoperability example are **simulated**. The second snapshot (2026-10-26) is also simulated. The API serves the working database, not a selected snapshot.
 
-| Phase | Content | Status | Notebook |
-|---|---|---|---|
-| 1 | Download pinned raw data + validate (existence, integrity, format, timestamps, accessibility) | ✅ implemented and run | `01_download_data.ipynb` |
-| 2 | Profile and clean → `data/clean/` | 🔲 concept only | `02_profile_and_clean` |
-| 3 | Django models (UML → ORM) and loading | 🔲 concept only | `03_django_models_and_loading` |
-| 4 | REST API + JSON-LD + Python client | 🔲 concept only | `04_…`, `05_api_and_client_tests` |
-| 5 | Snapshots, hashes, diff | 🔲 concept only | `06_snapshot_jsonld_diff` |
-| 6 | Results, plots, presentation | 🔲 concept only | `07_results_and_plots` |
-
-Rule: **one phase at a time.** Phase *n+1* starts only when the Phase *n* gate (all checks green) has passed.
-
----
-
-## Folder structure
+## Structure
 
 ```
-threatgraph-ld/
-├── README.md  LICENSE.txt  environment.yml  requirements.txt  .gitignore
-├── config/
-│   └── sources.yaml            # registry: URLs pinned to commits, expected SHA-256, counts, known anomalies
+ThreatGraph/
+├── config/sources.yaml     # pinned sources, expected hashes, licenses
 ├── data/
-│   ├── raw/                    # downloaded, read-only, never edited   (Phase 1)
-│   │   ├── kev/  attack/  pkev/  nvd/cve/   # nvd/cve/ = 1,391 files, one per KEV CVE
-│   │   ├── manifest.json                    # provenance: url, bytes, sha256, retrieved_at, license (versioned in git)
-│   │   └── phase1_validation_report.json    # result of the gate (versioned in git)
-│   ├── clean/                  # (Phase 2)
-│   └── snapshots/              # (Phase 5)
-├── src/threatgraph/            # reusable code: functions and classes only
-│   ├── config.py integrity.py manifest.py download.py validate_raw.py peek.py   # IMPLEMENTED
-│   └── profiling.py cleaning.py jsonld.py snapshot.py api_client.py plots.py    # CONCEPTUAL STUBS
-├── notebooks/                  # executable steps: import, run, test, show
-│   └── 01_download_data.ipynb  # IMPLEMENTED (outputs included)
-├── webapp/                     # Django project (Phase 3, not created yet) – see webapp/README.md
-└── docs/                       # DMP and report (later)
+│   ├── raw/                # downloaded data (not versioned, only manifest and report)
+│   ├── clean/              # 9 cleaned tables + manifest (only manifest and report versioned)
+│   ├── snapshots/          # frozen database snapshots (AIP)
+│   └── exports/            # JSON-LD exports and third-party example data
+├── src/threatgraph/        # reusable code (download, cleaning, validation, JSON-LD, snapshots)
+├── notebooks/              # executable steps, from download to results
+├── webapp/                 # Django project: models, admin, REST API
+└── docs/                   # design notes, validation reports, figures
 ```
 
-**Convention.** `.py` = definitions (functions, classes, utilities, plots). `.ipynb` = *use* them: run, check, show.
+Notebooks, in order: `01_download_data` → `02_clean_data` → `03_validate_clean_data` → `04_django_models_and_loading` → `05_api_and_client_tests` → `06_snapshot_and_diff` → `08_results_analysis` → `09_third_party_merge` (SPARQL).
 
----
-
-## Setup (conda)
+## Quick start
 
 ```bash
 conda env create -f environment.yml
 conda activate threatgraph
-python -m ipykernel install --user --name threatgraph --display-name "Python (threatgraph)"
-jupyter lab            # then open notebooks/01_download_data.ipynb
+# or: python -m venv .venv && pip install -r requirements.txt
+
+# 1. Download and clean the data (run the notebooks 01, 02, 03)
+jupyter lab
+
+# 2. Build the database and start the API
+cd webapp
+python manage.py migrate
+python manage.py load_clean_data
+python manage.py runserver
 ```
 
-Without conda: `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`.
+API endpoints: `/api/vulnerabilities/`, `/api/techniques/`, `/api/tactics/`, `/api/cwes/`, `/api/dataset/`, `/api/context/`. Add `?format=jsonld` to get JSON-LD.
 
-Needs: internet access to `raw.githubusercontent.com` (preflight cell checks it) and about 70 MB of disk.
+Create a snapshot: `python manage.py snapshot_db --label <label> --previous <path>`.
 
-## Phase 1 — usage
+## Images
 
-Interactive: open `notebooks/01_download_data.ipynb` and run all cells.
-Headless:
+![UML schema](docs/uml_threatgraph.png)
+*UML schema of the database (generated from the Django models).*
 
-```bash
-cd notebooks
-jupyter nbconvert --to notebook --execute 01_download_data.ipynb --output 01_download_data.ipynb
-```
+![OAIS scheme](docs/figures/oais_scheme.png)
+*Mapping of the project onto the OAIS reference model.*
 
-What the notebook does: preflight (HEAD on all URLs) → download core files (idempotent) → derive the CVE list from KEV →
-download 1,391 NVD records (8 threads, retry/back-off) → write `manifest.json` → show each format → run the five validation
-families → negative tests on deliberately damaged copies → write `phase1_validation_report.json` (**the gate**).
+![Exploit network](docs/figures/fig11_1_exploit_network.png)
+*Network of exploited vulnerabilities, techniques and tactics.*
 
-### Design choices (and why)
+## Data sources and licenses
 
-* **Pinned by commit, not by branch** – reproducibility; the same URL returns the same bytes.
-* **SHA-256 expected in the registry** – detects corruption *and* silent upstream change (fixity, OAIS).
-* **`.part` file + atomic rename** – a crash never leaves a half file with the final name.
-* **`Accept-Encoding: identity`** – `Content-Length` equals the bytes on disk, so truncation is detectable.
-* **Cache + idempotency** – re-running downloads nothing if hashes match.
-* **Raw files are read-only** (mode `0444`) – raw data is immutable; cleaning writes to `data/clean/`.
-* **Manifest** – one provenance record per file (what, from where, when, which hash, which license).
-* **NVD from a community mirror** – `nvd.nist.gov` was not reachable from the build sandbox, so the unofficial mirror `fkie-cad/nvd-json-data-feeds` is used. [UNCERTAIN] fidelity vs. official NVD beyond the checks.
+The code is released under the MIT license (`LICENSE.txt`). **The data keep the license of their original source:**
 
-### What is validated
-
-| Family | Examples of checks |
+| Source | License / terms |
 |---|---|
-| Existence | every registry file present & non-empty; exactly one NVD file per KEV CVE; no stray `.part` |
-| Integrity | SHA-256 and size vs registry and vs manifest; NVD canary hash |
-| Format | JSON parses; KEV 1,391 × 11 fields & types; PKEV 1,183 rows / 419 CVEs / 155 techniques; ATT&CK STIX 2.1, 22,905 objects, 799 techniques; NVD keys; PKEV CVEs ⊆ KEV and PKEV techniques ⊆ ATT&CK |
-| Timestamps | KEV `catalogVersion`/`dateReleased`; ATT&CK collection version 16.1; PKEV `attack_version`; every NVD `lastModified` ≤ 2025-07-28; retrieval times in range |
-| Accessibility | files readable, mode read-only, large file parses fast, online preflight (HTTP 200) |
+| KEV | CC0-1.0 |
+| NVD / CVE | NVD/CVE terms of use (public data, attribution) |
+| ATT&CK | MITRE ATT&CK Terms of Use |
+| PKEV | Apache-2.0 on the repository; data license not stated separately |
 
-### Known anomalies in the source data (not code bugs)
+Source links:
+- CISA KEV: https://github.com/cisagov/kev-data
+- NVD mirror: https://github.com/fkie-cad/nvd-json-data-feeds
+- MITRE ATT&CK: https://attack.mitre.org
+- CTID Mappings Explorer: https://center-for-threat-informed-defense.github.io/mappings-explorer/
 
-* KEV: 15 entries (all added 2021-11-03) have `dueDate` earlier than `dateAdded`.
-* ATT&CK 16.1: 2 `relationship` objects have `created` later than `modified`.
+## References
 
-Both are asserted with their exact counts (`known_anomalies` in `config/sources.yaml`).
+- Wilkinson, M. D. et al. (2016). *The FAIR Guiding Principles for scientific data management and stewardship*. Scientific Data, 3, 160018.
+- ISO 14721:2012. *Space data and information transfer systems — Open archival information system (OAIS) — Reference model*.
+- W3C. *JSON-LD 1.1* (Recommendation, 2020).
+- W3C. *Data Catalog Vocabulary (DCAT), Version 3* (Recommendation, 2024).
+- W3C. *PROV-O: The PROV Ontology* (Recommendation, 2013).
+- W3C. *SPARQL 1.1 Query Language* (Recommendation, 2013).
+- Berners-Lee, T. *Linked Data* — 5-star open data scheme.
+- Course slides, *Advanced Data Management*, University of Trieste, 2026.
 
-### Limits of the Phase-1 validation
+## Author
 
-* It proves the files are the pinned bytes and structurally as expected, **not** that the upstream facts are correct.
-* The negative tests damage *copies/in-memory documents*; they show the checks can fail, not that every possible corruption is caught.
-* Tested with Python 3.13 in a Linux sandbox. `environment.yml` pins Python 3.11 but **has not been run** (conda was not available there).
-
----
-
-## Data licenses (the code license does NOT apply to the data)
-
-| Source | License / terms | Note |
-|---|---|---|
-| KEV | CC0-1.0 (repo) | copy in `data/raw/kev/LICENSE` |
-| NVD / CVE | public data under NVD/CVE terms of use | copies in `data/raw/nvd/` |
-| ATT&CK | MITRE ATT&CK Terms of Use | copy in `data/raw/attack/LICENSE.txt` |
-| PKEV | Apache-2.0 on the repository | no separate data license stated [UNCERTAIN] |
-
-## Code license
-
-MIT, see `LICENSE.txt`. **Replace the copyright-holder placeholder** with your name before publishing.
-
-## Final usage section
-
-_To be completed at the end of the project (end-to-end run: Django loading, API, JSON-LD, snapshots, results)._
+Student project, University of Trieste (UniTS), academic year 2025/26.
