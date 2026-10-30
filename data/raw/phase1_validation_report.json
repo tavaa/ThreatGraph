@@ -1,0 +1,782 @@
+{
+  "phase": 1,
+  "generated_at_utc": "2026-10-13T13:44:45Z",
+  "manifest_sha256": "a3cf94bead11bfc7e313e7747cd6f2c1db4b05e3d0933548723d7f037814b94e",
+  "sources_digest_sha256": "c14c1352221bdbf89d5a2ef77c235495c4210897c0b6d367f4ef203cab4c3c42",
+  "negative_tests_detected": 11,
+  "negative_tests_total": 11,
+  "summary": {
+    "existence": {
+      "passed": 25,
+      "failed": 0
+    },
+    "integrity": {
+      "passed": 33,
+      "failed": 0
+    },
+    "format": {
+      "passed": 27,
+      "failed": 0
+    },
+    "timestamps": {
+      "passed": 14,
+      "failed": 0
+    },
+    "accessibility": {
+      "passed": 24,
+      "failed": 0
+    }
+  },
+  "all_passed": true,
+  "stats": {
+    "parse_seconds": {
+      "kev": 0.008,
+      "pkev": 0.008,
+      "attack": 0.261,
+      "nvd_all": 0.418
+    },
+    "nvd_hash_seconds": 0.13,
+    "nvd_max_lastModified": "2025-07-23T18:10:23.830000+00:00",
+    "nvd_records_parsed": 1391
+  },
+  "checks": [
+    {
+      "family": "existence",
+      "name": "exists kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": "1,243,169 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": "3,407 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists kev/LICENSE",
+      "ok": true,
+      "detail": "7,469 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest kev/LICENSE",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": "46,485,155 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists attack/LICENSE.txt",
+      "ok": true,
+      "detail": "1,354 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest attack/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": "1,210,128 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": "7,384 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists pkev/LICENSE.txt",
+      "ok": true,
+      "detail": "10,174 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest pkev/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists nvd/nvd-tou.md",
+      "ok": true,
+      "detail": "3,444 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest nvd/nvd-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "exists nvd/cve-tou.md",
+      "ok": true,
+      "detail": "1,729 B"
+    },
+    {
+      "family": "existence",
+      "name": "in manifest nvd/cve-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "nvd: one file per KEV CVE (none missing)",
+      "ok": true,
+      "detail": "missing: []"
+    },
+    {
+      "family": "existence",
+      "name": "nvd: no extra files",
+      "ok": true,
+      "detail": "extra: []"
+    },
+    {
+      "family": "existence",
+      "name": "nvd: count == expected",
+      "ok": true,
+      "detail": "1391"
+    },
+    {
+      "family": "existence",
+      "name": "nvd: all NVD files listed in manifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "existence",
+      "name": "no leftover *.part files",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "integrity",
+      "name": "size kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": "expected 1243169, found 1243169"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": "expected 3407, found 3407"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size kev/LICENSE",
+      "ok": true,
+      "detail": "expected 7469, found 7469"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 kev/LICENSE",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry kev/LICENSE",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": "expected 46485155, found 46485155"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size attack/LICENSE.txt",
+      "ok": true,
+      "detail": "expected 1354, found 1354"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 attack/LICENSE.txt",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry attack/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": "expected 1210128, found 1210128"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": "expected 7384, found 7384"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size pkev/LICENSE.txt",
+      "ok": true,
+      "detail": "expected 10174, found 10174"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 pkev/LICENSE.txt",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry pkev/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size nvd/nvd-tou.md",
+      "ok": true,
+      "detail": "expected 3444, found 3444"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 nvd/nvd-tou.md",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry nvd/nvd-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "size nvd/cve-tou.md",
+      "ok": true,
+      "detail": "expected 1729, found 1729"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 nvd/cve-tou.md",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "integrity",
+      "name": "manifest sha256 == registry nvd/cve-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "nvd: all records match manifest sha256+size",
+      "ok": true,
+      "detail": "0 bad: []"
+    },
+    {
+      "family": "integrity",
+      "name": "size nvd canary CVE-2024-34102",
+      "ok": true,
+      "detail": "expected 16388, found 16388"
+    },
+    {
+      "family": "integrity",
+      "name": "sha256 nvd canary CVE-2024-34102",
+      "ok": true,
+      "detail": "match"
+    },
+    {
+      "family": "format",
+      "name": "kev: top-level keys",
+      "ok": true,
+      "detail": "['catalogVersion', 'count', 'dateReleased', 'title', 'vulnerabilities']"
+    },
+    {
+      "family": "format",
+      "name": "kev: entry count",
+      "ok": true,
+      "detail": "1391 (expected 1391)"
+    },
+    {
+      "family": "format",
+      "name": "kev: 'count' field == len(vulnerabilities)",
+      "ok": true,
+      "detail": "1391 vs 1391"
+    },
+    {
+      "family": "format",
+      "name": "kev: every entry has exactly the 11 expected fields",
+      "ok": true,
+      "detail": "0 bad"
+    },
+    {
+      "family": "format",
+      "name": "kev: field types",
+      "ok": true,
+      "detail": "0 bad"
+    },
+    {
+      "family": "format",
+      "name": "kev: cveID pattern",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "kev: cveID unique",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "kev: dateAdded/dueDate are YYYY-MM-DD",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "kev: ransomware flag in {Known, Unknown}",
+      "ok": true,
+      "detail": "['Known', 'Unknown']"
+    },
+    {
+      "family": "format",
+      "name": "attack: bundle type + spec_version",
+      "ok": true,
+      "detail": "bundle / 2.1"
+    },
+    {
+      "family": "format",
+      "name": "attack: object count",
+      "ok": true,
+      "detail": "22905 (expected 22905)"
+    },
+    {
+      "family": "format",
+      "name": "attack: attack-pattern count",
+      "ok": true,
+      "detail": "799"
+    },
+    {
+      "family": "format",
+      "name": "attack: tactic count",
+      "ok": true,
+      "detail": "14"
+    },
+    {
+      "family": "format",
+      "name": "attack: every object has id/type/spec_version-compatible shape",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "attack: exactly one x-mitre-collection",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "pkev: top-level keys",
+      "ok": true,
+      "detail": "['mapping_objects', 'metadata']"
+    },
+    {
+      "family": "format",
+      "name": "pkev: row count",
+      "ok": true,
+      "detail": "1183 (expected 1183)"
+    },
+    {
+      "family": "format",
+      "name": "pkev: distinct CVEs",
+      "ok": true,
+      "detail": "419"
+    },
+    {
+      "family": "format",
+      "name": "pkev: distinct techniques",
+      "ok": true,
+      "detail": "155"
+    },
+    {
+      "family": "format",
+      "name": "pkev: required row keys",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "pkev: mapping_type vocabulary",
+      "ok": true,
+      "detail": "['exploitation_technique', 'primary_impact', 'secondary_impact']"
+    },
+    {
+      "family": "format",
+      "name": "pkev: attack_object_id pattern (T####[.###])",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "format",
+      "name": "pkev: metadata.attack_version",
+      "ok": true,
+      "detail": "16.1"
+    },
+    {
+      "family": "format",
+      "name": "pkev: metadata.mapping_framework_version",
+      "ok": true,
+      "detail": "07/28/2025"
+    },
+    {
+      "family": "format",
+      "name": "pkev x-ref: every CVE is in KEV",
+      "ok": true,
+      "detail": "0 not in KEV"
+    },
+    {
+      "family": "format",
+      "name": "pkev x-ref: every technique id exists in ATT&CK 16.1",
+      "ok": true,
+      "detail": "0 unknown: []"
+    },
+    {
+      "family": "format",
+      "name": "nvd: 1391 records parse and have required keys/id",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "timestamps",
+      "name": "kev: catalogVersion == common version",
+      "ok": true,
+      "detail": "2025.07.28"
+    },
+    {
+      "family": "timestamps",
+      "name": "kev: dateReleased falls on the common-version day",
+      "ok": true,
+      "detail": "2025-07-28T14:00:14.6746Z"
+    },
+    {
+      "family": "timestamps",
+      "name": "kev: max(dateAdded) <= dateReleased",
+      "ok": true,
+      "detail": "2025-07-28"
+    },
+    {
+      "family": "timestamps",
+      "name": "kev: dueDate < dateAdded only in the known anomalies",
+      "ok": true,
+      "detail": "15 found, 15 known"
+    },
+    {
+      "family": "timestamps",
+      "name": "kev: dateReleased not in the future",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "timestamps",
+      "name": "pkev: creation_date <= last_update",
+      "ok": true,
+      "detail": "07/28/2025 <= 08/28/2025"
+    },
+    {
+      "family": "timestamps",
+      "name": "pkev: dates not in the future",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "timestamps",
+      "name": "pkev: attack_version == common version",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "timestamps",
+      "name": "attack: collection x_mitre_version == common version",
+      "ok": true,
+      "detail": "16.1"
+    },
+    {
+      "family": "timestamps",
+      "name": "attack: all 'modified' parse and are not in the future",
+      "ok": true,
+      "detail": "max modified = 2024-11-12T14:00:00.188000+00:00"
+    },
+    {
+      "family": "timestamps",
+      "name": "attack: created > modified only in the known anomalies",
+      "ok": true,
+      "detail": "2 found, 2 known"
+    },
+    {
+      "family": "timestamps",
+      "name": "nvd: lastModified <= cutoff and published <= lastModified (1391 records)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "timestamps",
+      "name": "manifest: retrieved_at_utc within [cutoff, now]",
+      "ok": true,
+      "detail": "2026-10-13T13:44:14+00:00 .. 2026-10-13T13:44:23+00:00"
+    },
+    {
+      "family": "timestamps",
+      "name": "manifest: generated_at_utc not in the future",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "readable kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode kev/known_exploited_vulnerabilities.json",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode kev/known_exploited_vulnerabilities_schema.json",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable kev/LICENSE",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode kev/LICENSE",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode attack/enterprise-attack-16.1.json",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable attack/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode attack/LICENSE.txt",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode pkev/kev-07.28.2025_attack-16.1-enterprise.json",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode pkev/mapex-unified-data-schema.json",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable pkev/LICENSE.txt",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode pkev/LICENSE.txt",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable nvd/nvd-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode nvd/nvd-tou.md",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "readable nvd/cve-tou.md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "accessibility",
+      "name": "read-only mode nvd/cve-tou.md",
+      "ok": true,
+      "detail": "0o444"
+    },
+    {
+      "family": "accessibility",
+      "name": "nvd: all records readable",
+      "ok": true,
+      "detail": "0 unreadable"
+    },
+    {
+      "family": "accessibility",
+      "name": "nvd: all records read-only (mode bits)",
+      "ok": true,
+      "detail": "0 writable"
+    },
+    {
+      "family": "accessibility",
+      "name": "attack (46 MB) parses in < 30 s",
+      "ok": true,
+      "detail": "0.261 s"
+    },
+    {
+      "family": "accessibility",
+      "name": "raw_dir listable",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

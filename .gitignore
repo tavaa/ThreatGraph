@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+
+# Raw data: downloaded, reproducible from config/sources.yaml -> not versioned.
+# Only the manifest (provenance + hashes) and the validation report are versioned.
+data/raw/**/*.json
+data/raw/**/LICENSE*
+data/raw/**/*.md
+data/raw/**/*.txt
+data/raw/**/*.part
+!data/raw/manifest.json
+!data/raw/phase1_validation_report.json
+data/clean/*
+data/snapshots/*
+!data/clean/.gitkeep
+!data/snapshots/.gitkeep
+
+# Django (later phases)
+webapp/db.sqlite3
+*.sqlite3
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/

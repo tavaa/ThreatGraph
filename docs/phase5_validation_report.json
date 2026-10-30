@@ -1,0 +1,379 @@
+{
+  "phase": 5,
+  "all_passed": true,
+  "baseline_label": "2025-07-28",
+  "baseline_content_id": "74d833caed5fc33635e2469d02e09b736a217ccc115460cbf7e203b521105e0a",
+  "summary": [
+    {
+      "family": "cli",
+      "passed": 3,
+      "total": 3
+    },
+    {
+      "family": "diff",
+      "passed": 8,
+      "total": 8
+    },
+    {
+      "family": "fixity",
+      "passed": 1,
+      "total": 1
+    },
+    {
+      "family": "jsonld",
+      "passed": 4,
+      "total": 4
+    },
+    {
+      "family": "negative",
+      "passed": 13,
+      "total": 13
+    },
+    {
+      "family": "repro",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "family": "snapshot",
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "family": "trap",
+      "passed": 3,
+      "total": 3
+    }
+  ],
+  "checks": [
+    {
+      "family": "snapshot",
+      "name": "9 tables in the snapshot, SHA-256 of each == Phase-2 manifest (database export is lossless)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "snapshot",
+      "name": "content_id == content_id computed from the Phase-2 manifest hashes (independent route)",
+      "ok": true,
+      "detail": "74d833caed5fc336"
+    },
+    {
+      "family": "snapshot",
+      "name": "row counts == Phase-2 manifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "snapshot",
+      "name": "verify_snapshot finds no problem in the fresh snapshot",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "snapshot",
+      "name": "all files are read-only (append-only archive)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "snapshot",
+      "name": "provenance records the raw-manifest and cleaning-code hashes of Phase 2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "repro",
+      "name": "same data, different label/time/folder: identical table hashes and identical content_id (also == the real baseline)",
+      "ok": true,
+      "detail": "74d833caed5fc336"
+    },
+    {
+      "family": "repro",
+      "name": "the files themselves are byte-identical",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "repro",
+      "name": "creating the same label again with the same data is a no-op (idempotent)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "repro",
+      "name": "same label, DIFFERENT data -> SnapshotExists (append-only: history cannot be rewritten)",
+      "ok": true,
+      "detail": "/home/tavaa/Advanced_data_management/ThreatGraph/data/snapshots/2025-07-28 exists with con"
+    },
+    {
+      "family": "repro",
+      "name": "no half-written folder is left behind (.part)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "one bit flipped inside a table file",
+      "ok": true,
+      "detail": "['kev_vulnerability: SHA-256 differs from manifest']"
+    },
+    {
+      "family": "negative",
+      "name": "a table file deleted",
+      "ok": true,
+      "detail": "['nvd_cve: file missing']"
+    },
+    {
+      "family": "negative",
+      "name": "an unexpected file added",
+      "ok": true,
+      "detail": "['unexpected file tables/notes.txt']"
+    },
+    {
+      "family": "negative",
+      "name": "manifest edited (a table hash replaced)",
+      "ok": true,
+      "detail": "['kev_cwe: SHA-256 differs from manifest', 'content_id does not match the table hashes in the manifest']"
+    },
+    {
+      "family": "negative",
+      "name": "table file truncated",
+      "ok": true,
+      "detail": "['pkev_mapping: size 517904 != manifest 518104', 'pkev_mapping: SHA-256 differs from manifest']"
+    },
+    {
+      "family": "negative",
+      "name": "manifest destroyed",
+      "ok": true,
+      "detail": "['manifest unreadable: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)']"
+    },
+    {
+      "family": "fixity",
+      "name": "6/6 kinds of damage detected by verify_snapshot",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "diff(baseline, its byte-identical copy) is empty in all 9 tables",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "trap",
+      "name": "row order does not matter: diff(A, A with every table shuffled) is empty",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "snapshot",
+      "name": "synthetic snapshot B passes verify and has a different content_id from the baseline",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "per-table counts (added / removed / changed rows / changed cells) == the ground truth written by hand",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "the CVEs in the changelog are exactly the 8 CVEs touched by the operations",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "diff",
+      "name": "the changelog of the new CVE lists 6 additions; of the removed CVE only removals",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "independent recount with Python sets gives the same table as the diff",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "patch property: baseline + diff == snapshot B in all 9 tables (diff is complete and has nothing extra)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "diff",
+      "name": "inverse: diff(B->A) has added/removed swapped and the same number of changed cells",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "diff",
+      "name": "round trip: B + diff(B->A) == baseline",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "trap",
+      "name": "mapping_id shifted for (almost) every mapping, yet only the 1 really edited mapping is reported as changed",
+      "ok": true,
+      "detail": "(1180, 1)"
+    },
+    {
+      "family": "trap",
+      "name": "positions renumbered only: content_id CHANGES (different bytes) but the diff is EMPTY (same meaning)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "snapshot.jsonld of both snapshots uses only terms defined in the @context",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "graph says: B prov:wasRevisionOf baseline (version lineage), by content-based IRIs",
+      "ok": true,
+      "detail": "[('urn:threatgraph:snapshot:78b836c469dced5b', 'urn:threatgraph:snapshot:74d833caed5fc336')]"
+    },
+    {
+      "family": "jsonld",
+      "name": "contentId and 9 table nodes (rowCount, sha256) in the graph == snapshot.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "context still has one term per IRI after adding the snapshot terms",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "cli",
+      "name": "exit codes: verify intact = 0, diff identical = 0, diff different = 1, verify damaged = 1, diff against damaged = 2",
+      "ok": true,
+      "detail": "(0, 0, 1, 1, 2)"
+    },
+    {
+      "family": "cli",
+      "name": "the diff output names the changed tables",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "cli",
+      "name": "--json writes the full diff (by_cve changelog included)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "diff with one lost addition -> patch property fails",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "ground truth with a wrong number -> comparison fails",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "recount on a tampered B differs from the diff",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "duplicate natural key in a table -> DiffError",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "evidence pointing to a mapping that does not exist -> DiffError",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "tables with different columns -> DiffError",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "diff against a damaged snapshot -> refused (never compare what you cannot trust)",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "synthetic_ground_truth": [
+    {
+      "table": "kev_vulnerability",
+      "added": 1,
+      "removed": 1,
+      "changed rows": 1,
+      "changed cells": 1
+    },
+    {
+      "table": "kev_cwe",
+      "added": 1,
+      "removed": 0,
+      "changed rows": 0,
+      "changed cells": 0
+    },
+    {
+      "table": "nvd_cve",
+      "added": 1,
+      "removed": 1,
+      "changed rows": 2,
+      "changed cells": 5
+    },
+    {
+      "table": "nvd_cve_cwe",
+      "added": 1,
+      "removed": 1,
+      "changed rows": 0,
+      "changed cells": 0
+    },
+    {
+      "table": "attack_tactic",
+      "added": 0,
+      "removed": 0,
+      "changed rows": 1,
+      "changed cells": 1
+    },
+    {
+      "table": "attack_technique",
+      "added": 1,
+      "removed": 0,
+      "changed rows": 2,
+      "changed cells": 3
+    },
+    {
+      "table": "attack_technique_tactic",
+      "added": 1,
+      "removed": 0,
+      "changed rows": 0,
+      "changed cells": 0
+    },
+    {
+      "table": "pkev_mapping",
+      "added": 2,
+      "removed": 3,
+      "changed rows": 1,
+      "changed cells": 1
+    },
+    {
+      "table": "pkev_mapping_reference",
+      "added": 3,
+      "removed": 3,
+      "changed rows": 0,
+      "changed cells": 0
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+ "@context": {
+  "@vocab": "http://example.org/patching#",
+  "forCve": {
+   "@type": "@id"
+  }
+ },
+ "@graph": [
+  {
+   "@id": "urn:example-patch:item:001",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2024-57727",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-08-01"
+  },
+  {
+   "@id": "urn:example-patch:item:002",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2023-48788",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-08-06"
+  },
+  {
+   "@id": "urn:example-patch:item:003",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2017-11292",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-08-11"
+  },
+  {
+   "@id": "urn:example-patch:item:004",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2024-21413",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-08-16"
+  },
+  {
+   "@id": "urn:example-patch:item:005",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2023-0669",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-08-21"
+  },
+  {
+   "@id": "urn:example-patch:item:006",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2012-2034",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-08-26"
+  },
+  {
+   "@id": "urn:example-patch:item:007",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2012-1535",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-08-31"
+  },
+  {
+   "@id": "urn:example-patch:item:008",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2017-5638",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-09-05"
+  },
+  {
+   "@id": "urn:example-patch:item:009",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2021-22900",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-09-10"
+  },
+  {
+   "@id": "urn:example-patch:item:010",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2021-27065",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-09-15"
+  },
+  {
+   "@id": "urn:example-patch:item:011",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2023-36845",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-09-20"
+  },
+  {
+   "@id": "urn:example-patch:item:012",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2024-26169",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-09-25"
+  },
+  {
+   "@id": "urn:example-patch:item:013",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2012-0754",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-09-30"
+  },
+  {
+   "@id": "urn:example-patch:item:014",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2023-7024",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-10-05"
+  },
+  {
+   "@id": "urn:example-patch:item:015",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2021-21972",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-10-10"
+  },
+  {
+   "@id": "urn:example-patch:item:016",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2025-22224",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-10-15"
+  },
+  {
+   "@id": "urn:example-patch:item:017",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2024-4947",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-10-20"
+  },
+  {
+   "@id": "urn:example-patch:item:018",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2025-21333",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-10-25"
+  },
+  {
+   "@id": "urn:example-patch:item:019",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2022-47966",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-10-30"
+  },
+  {
+   "@id": "urn:example-patch:item:020",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2021-22986",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-11-04"
+  },
+  {
+   "@id": "urn:example-patch:item:021",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2023-22515",
+   "owner_team": "Web Platform",
+   "patched": "yes",
+   "planned_date": "2025-11-09"
+  },
+  {
+   "@id": "urn:example-patch:item:022",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2024-20953",
+   "owner_team": "Network",
+   "patched": "no",
+   "planned_date": "2025-11-14"
+  },
+  {
+   "@id": "urn:example-patch:item:023",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2021-39226",
+   "owner_team": "Messaging",
+   "patched": "no",
+   "planned_date": "2025-11-19"
+  },
+  {
+   "@id": "urn:example-patch:item:024",
+   "@type": "Item",
+   "forCve": "https://nvd.nist.gov/vuln/detail/CVE-2025-54309",
+   "owner_team": "Desktop",
+   "patched": "no",
+   "planned_date": "2025-11-24"
+  }
+ ]
+}

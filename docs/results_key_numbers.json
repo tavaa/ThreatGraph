@@ -1,0 +1,55 @@
+{
+  "n_kev": 1391,
+  "n_ransom": 291,
+  "n_mapped": 419,
+  "n_critical": 473,
+  "n_cvss": 1389,
+  "n_inf_cwe_nvd": 1188,
+  "top_vendor": "Microsoft",
+  "top_vendor_n": 338,
+  "top_tech": "T1059",
+  "top_tech_n": 170,
+  "cov_by_year": {
+    "2021": 0.2862,
+    "2022": 0.182,
+    "2023": 0.3529,
+    "2024": 0.2151,
+    "2025": 0.8092
+  },
+  "window21": 900,
+  "n_both_roles": 345,
+  "n_tech_used": 155,
+  "n_mappings": 1183,
+  "crit_share_ransom": 0.4777,
+  "crit_share_other": 0.3042,
+  "crit_diff_ci": [
+    0.1093,
+    0.2364
+  ],
+  "graph": {
+    "nodes": 574,
+    "edges": 1177,
+    "components": 3,
+    "giant": 569,
+    "k50": 2,
+    "k80": 5
+  },
+  "q3_unmapped": 66,
+  "q3_total": 139,
+  "fair": {
+    "done": 5,
+    "partial": 5,
+    "not done": 2
+  },
+  "figures": [
+    "fig1_coverage",
+    "fig2_time",
+    "fig3_vendors_cwe",
+    "fig4_severity",
+    "fig5_attack",
+    "fig6_cooccurrence",
+    "fig7_exploit_to_impact",
+    "fig8_hubs_coverage",
+    "fig9_case_study"
+  ]
+}

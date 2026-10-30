@@ -1,0 +1,176 @@
+# ThreatGraph-LD -- registry of pinned sources (Phase 1)
+#
+# Every URL points to an immutable git commit, never to a branch.
+# Every file has the SHA-256 that was observed when the pins were chosen
+# (2026-10-13). A mismatch at download time means the upstream changed or
+# the transfer was corrupted -> Phase 1 must fail loudly.
+#
+# Common version ("snapshot date"): 2025-07-28
+#   KEV  catalogVersion 2025.07.28
+#   NVD  mirror tag v2025.07.28-000002  (records with lastModified <= cutoff)
+#   ATT&CK Enterprise 16.1  (STIX 2.1)
+#   PKEV (CTID Mappings Explorer) kev-07.28.2025 + attack-16.1
+
+common_version:
+  label: "2025-07-28"
+  nvd_cutoff_utc: "2025-07-28T00:00:00Z"
+  attack_version: "16.1"
+  kev_catalog_version: "2025.07.28"
+  pkev_framework_version: "07/28/2025"
+
+expected_counts:
+  kev_entries: 1391
+  kev_fields_per_entry: 11
+  pkev_rows: 1183
+  pkev_distinct_cves: 419
+  pkev_distinct_techniques: 155
+  attack_objects: 22905
+  attack_patterns: 799
+  attack_tactics: 14
+  nvd_records: 1391          # one record per KEV CVE
+
+# Upstream data quirks observed in the pinned versions (found by the Phase-1
+# timestamp checks on 2026-10-13). They are properties of the SOURCE data, not
+# bugs of this code. We assert the exact count: if it changes, the data changed.
+known_anomalies:
+  kev_due_before_added: 15       # all 15 have dateAdded 2021-11-03 (initial bulk load) and a dueDate in 2020-2021
+  attack_created_after_modified: 2   # two 'relationship' objects (created 2018-10-17, modified 2018-04-30)
+
+sources:
+  kev:
+    title: "CISA Known Exploited Vulnerabilities (KEV) catalog"
+    publisher: "CISA"
+    repo: "cisagov/kev-data"
+    pinned_ref: "0cca62ed469c333a45760beeaf35fcc53352aedd"
+    raw_base: "https://raw.githubusercontent.com/cisagov/kev-data/0cca62ed469c333a45760beeaf35fcc53352aedd"
+    dest_dir: "kev"
+    license: "CC0-1.0 (repo LICENSE)"
+    files:
+      - role: data
+        path: "known_exploited_vulnerabilities.json"
+        sha256: "b20607afbdda3f6393282e797f4e49f87b48f5b64f124ae9dc67059fcc72338a"
+        bytes: 1243169
+      - role: schema
+        path: "known_exploited_vulnerabilities_schema.json"
+        sha256: "577f4ccc06b7b7c6a109e1a0d6457a26db7fc5219398ff2e287b9a7e14e2d9ef"
+        bytes: 3407
+      - role: license
+        path: "LICENSE"
+        sha256: "8dfcf2d0cba33bede386eb470daf2ac08caf6540fc2516baab10dd546f90938a"
+        bytes: 7469
+
+  attack:
+    title: "MITRE ATT&CK Enterprise 16.1 (STIX 2.1 bundle)"
+    publisher: "MITRE"
+    repo: "mitre-attack/attack-stix-data"
+    pinned_ref: "6cda5ad8462c79e14fbb872f4e09059b18e0cfc4"
+    raw_base: "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4"
+    dest_dir: "attack"
+    license: "ATT&CK Terms of Use (royalty-free, see LICENSE.txt)"
+    files:
+      - role: data
+        path: "enterprise-attack/enterprise-attack-16.1.json"
+        sha256: "8423d8dac3fc2feb825bb07d26e5f5d905e08a88f6fe4652cc20834cbe982813"
+        bytes: 46485155
+      - role: license
+        path: "LICENSE.txt"
+        sha256: "738144f7fb054722a4ef9d3367c51710341dc12fc574c6ac3a41daaaecd8bf5e"
+        bytes: 1354
+
+  pkev:
+    title: "CTID Mappings Explorer: KEV -> ATT&CK mappings (PKEV)"
+    publisher: "Center for Threat-Informed Defense (MITRE Engenuity)"
+    repo: "center-for-threat-informed-defense/mappings-explorer"
+    pinned_ref: "ddc842aa48c871cbfc2219cdbb842e9a4e155afe"
+    raw_base: "https://raw.githubusercontent.com/center-for-threat-informed-defense/mappings-explorer/ddc842aa48c871cbfc2219cdbb842e9a4e155afe"
+    dest_dir: "pkev"
+    license: "Apache-2.0 (repo LICENSE.txt) -- data license not stated separately [UNCERTAIN]"
+    files:
+      - role: data
+        path: "mappings/kev/attack-16.1/kev-07.28.2025/enterprise/kev-07.28.2025_attack-16.1-enterprise.json"
+        sha256: "b57b3d382809d9159fdda6701d21f0e67a2d655444d89301caab2c39ad54bdc7"
+        bytes: 1210128
+      - role: schema
+        path: "schema/mapex-unified-data-schema.json"
+        sha256: "1ecd1437bde6ae07b6a4507ef0bd2a0ef427d77f938fb838a5485d6cf82bdcb1"
+        bytes: 7384
+      - role: license
+        path: "LICENSE.txt"
+        sha256: "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        bytes: 10174
+
+  nvd:
+    title: "NVD CVE records (community mirror, one JSON per CVE)"
+    publisher: "NIST NVD via fkie-cad/nvd-json-data-feeds (UNOFFICIAL mirror)"
+    repo: "fkie-cad/nvd-json-data-feeds"
+    pinned_ref: "a4262227a26a698199ea8d287932f8639e85aa6d"   # tag v2025.07.28-000002
+    raw_base: "https://raw.githubusercontent.com/fkie-cad/nvd-json-data-feeds/a4262227a26a698199ea8d287932f8639e85aa6d"
+    dest_dir: "nvd"
+    license: "NVD/CVE terms of use (public domain data, attribution) -- see LICENSES/"
+    files:
+      - role: license
+        path: "LICENSES/nvd-tou.md"
+        sha256: "b1040b68c3c789eaa60d6bf98971464194e45ce4f95eee36e81c7363fd5fd474"
+        bytes: 3444
+      - role: license
+        path: "LICENSES/cve-tou.md"
+        sha256: "f04031049349f83c5d6276d529b5529c62f7ade891896d03820fe0591462ed98"
+        bytes: 1729
+    # Per-CVE files: the list of CVE ids is NOT hard-coded; it is derived from
+    # the KEV file (the scope of the project = the KEV CVEs).
+    per_cve:
+      path_template: "CVE-{year}/CVE-{year}-{bucket}xx/{cve_id}.json"
+      # bucket = the CVE number without its last two digits
+      #   CVE-2024-34102 -> CVE-2024/CVE-2024-341xx/CVE-2024-34102.json
+      #   CVE-2023-2533  -> CVE-2023/CVE-2023-25xx/CVE-2023-2533.json
+      dest_subdir: "cve"
+      canary_cve: "CVE-2024-34102"
+      canary_sha256: "b88b21f075e1f91905847aa0d5d1c34e7a8f733112a4ef568274ac2f709a638a"
+      canary_bytes: 16388
+
+# ---------------------------------------------------------------------------
+# Phase 2 expectations (measured on the pinned raw data, 2026-10-21).
+# Notebook 03 asserts them; a change means the data or the cleaning rules changed.
+# ---------------------------------------------------------------------------
+expected_clean:
+  rows:
+    kev_vulnerability: 1391
+    kev_cwe: 1328
+    nvd_cve: 1391
+    nvd_cve_cwe: 2523
+    attack_tactic: 14
+    attack_technique: 799
+    attack_technique_tactic: 1051
+    pkev_mapping: 1183
+    pkev_mapping_reference: 2256
+  rule_counts:                       # how many times each cleaning rule fired
+    G4.stripped_values: 559          # text values with edge whitespace
+    K1.ransomware_known: 291
+    K1.ransomware_unknown: 1100
+    K2.empty_cwes: 148
+    K3.due_before_added: 15
+    N2.no_v31: 2
+    N2.v2_only: 2
+    N2.secondary_only: 135
+    N2.several_v31_metrics: 1104
+    N3.noninformative: 373
+    N4.deferred: 316
+    T1.objects_not_kept: 22092
+    T2.revoked: 131
+    T2.deprecated: 12
+    T3.subtechniques: 456
+    P2.null_comments: 5
+    P3.multi_url_strings_split: 18
+    P3.not_a_url: 25
+    P3.duplicate_dropped: 5
+  cross_source:                      # disagreements between sources (reported, never "fixed")
+    kev_cves_with_pkev_mapping: 419
+    kev_cves_without_pkev_mapping: 972
+    kev_and_nvd_both_have_informative_cwe: 1148
+    kev_nvd_cwe_sets_equal: 863
+    kev_nvd_cwe_sets_disjoint: 126
+    kev_added_before_nvd_published: 55
+    nvd_missing_kev_echo_fields: 3
+    nvd_kev_echo_value_differences: 0
+    pkev_technique_name_differs_from_attack: 0
+    pkev_cve_description_differs_from_kev_name: 3

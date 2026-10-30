@@ -1,0 +1,33 @@
+# ThreatGraph Python dependencies 
+# requirements.txt
+
+# data download + validation 
+requests>=2.31          # HTTP client (Session, streaming, Retry via urllib3)
+urllib3>=2.0            # Retry policy for 429/5xx
+PyYAML>=6.0             # config/sources.yaml
+pandas>=2.0             # tables shown in notebooks
+tqdm>=4.66              # progress bars 
+
+# Notebook tooling 
+jupyterlab>=4.0
+ipykernel>=6.25
+ipywidgets>=8.0         
+nbformat>=5.9
+nbconvert>=7.8          
+
+#  profiling / cleaning 
+jsonschema>=4.20      
+
+# Django + DRF 
+Django>=5.2,<6.0
+djangorestframework>=3.15
+django-filter>=24.1
+
+# JSON-LD, graph, plots -
+rdflib>=7.0           # parse/serialize JSON-LD, check triples
+PyLD>=2.0             # JSON-LD processor (expand/compact)
+networkx>=3.2         # graph visulaization
+matplotlib>=3.8       
+
+#  Testing 
+pytest>=8.0

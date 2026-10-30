@@ -1,0 +1,6 @@
+phase,step,checks on real data/code,negative tests (planted faults),total,all passed
+1,Download + validate raw,123,11,134,True
+2,Clean + validate,152,14,166,True
+3,Database model + load,20,0,20,True
+4,REST API + JSON-LD,40,11,51,True
+5,Snapshots + diff,31,13,44,True

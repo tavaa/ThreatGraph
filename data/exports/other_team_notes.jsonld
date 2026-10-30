@@ -1,0 +1,10 @@
+{
+ "@context": {
+  "ex": "http://example.org/soc#",
+  "priority": "ex:patchPriority",
+  "owner": "ex:ownedBy"
+ },
+ "@id": "https://nvd.nist.gov/vuln/detail/CVE-2024-34102",
+ "priority": "P1 - patch this week",
+ "owner": "web-platform team"
+}

@@ -1,0 +1,361 @@
+{
+  "phase": 4,
+  "django": "5.2.18",
+  "all_passed": true,
+  "summary": [
+    {
+      "family": "content",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "family": "dataset",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "family": "filters",
+      "passed": 4,
+      "total": 4
+    },
+    {
+      "family": "http",
+      "passed": 2,
+      "total": 2
+    },
+    {
+      "family": "jsonld",
+      "passed": 12,
+      "total": 12
+    },
+    {
+      "family": "merge",
+      "passed": 2,
+      "total": 2
+    },
+    {
+      "family": "negative",
+      "passed": 11,
+      "total": 11
+    },
+    {
+      "family": "paging",
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "family": "perf",
+      "passed": 3,
+      "total": 3
+    }
+  ],
+  "checks": [
+    {
+      "family": "http",
+      "name": "28/28 status-code and content-negotiation probes behave as designed",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "http",
+      "name": "JSON and JSON-LD of the same URL are both valid JSON with different media types",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "paging",
+      "name": "count == 1,391 and default page size is 50",
+      "ok": true,
+      "detail": "(1391, 50)"
+    },
+    {
+      "family": "paging",
+      "name": "walking all pages gives every CVE exactly once, equal to the clean KEV table",
+      "ok": true,
+      "detail": "(1391, 1391)"
+    },
+    {
+      "family": "paging",
+      "name": "page_size is capped at its maximum (asked 100,000)",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "family": "paging",
+      "name": "first page has previous=None, last page has next=None",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "family": "paging",
+      "name": "techniques: 799 distinct ids == attack_technique table",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "paging",
+      "name": "tactics: 14 rows; CWEs: 176 rows",
+      "ok": true,
+      "detail": "(14, 176)"
+    },
+    {
+      "family": "paging",
+      "name": "no filter and ?search= of a CVE id: client.count() works without downloading everything",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "filters",
+      "name": "16/16 filters return exactly the pandas set (no duplicates, count() agrees)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "filters",
+      "name": "?ordering=-date_added is non-increasing over all pages",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "filters",
+      "name": "?ordering=-n_mappings: first row has the maximum number of PKEV mappings",
+      "ok": true,
+      "detail": "('CVE-2021-40539', 14)"
+    },
+    {
+      "family": "filters",
+      "name": "techniques: ?ordering=-n_vulnerabilities gives the technique with most CVEs; subtechnique filter and tactic filter work",
+      "ok": true,
+      "detail": "('T1059', np.int64(170))"
+    },
+    {
+      "family": "content",
+      "name": "1,391 CVE detail documents are identical to the clean tables (KEV, NVD, CWE, PKEV, evidence, tactics)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "content",
+      "name": "missing != empty: CVEs without CVSS v3.1 show cvss_v31 = null (not 0, not empty)",
+      "ok": true,
+      "detail": "['CVE-2009-2055', 'CVE-2015-0666']"
+    },
+    {
+      "family": "content",
+      "name": "972 CVEs have attack == [] (= not mapped by PKEV) and 419 have mappings",
+      "ok": true,
+      "detail": "972"
+    },
+    {
+      "family": "content",
+      "name": "799 technique detail documents are identical to the clean tables (incl. parent, sub-techniques, tactics, CVEs)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "content",
+      "name": "the CVE view and the technique view describe the same 1,183 mappings",
+      "ok": true,
+      "detail": "(1183, 1183)"
+    },
+    {
+      "family": "jsonld",
+      "name": "all 1,391 JSON-LD documents use only terms defined in the @context (nothing would be dropped)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "jsonld",
+      "name": "one context term per IRI (otherwise expand->compact could rename keys)",
+      "ok": true,
+      "detail": "{}"
+    },
+    {
+      "family": "jsonld",
+      "name": "every document carries the same @context as /api/context/ and as jsonld.CONTEXT",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "@id of every CVE is its NVD IRI; of every technique its attack.mitre.org IRI",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "graph: 1,391 vulnerabilities, 1,183 mapping nodes, 155 distinct techniques (same as pandas)",
+      "ok": true,
+      "detail": "(1391, 1183, 155)"
+    },
+    {
+      "family": "jsonld",
+      "name": "graph: mappings per mapping_type == pandas value_counts",
+      "ok": true,
+      "detail": "{'exploitation_technique': '460', 'primary_impact': '407', 'secondary_impact': '316'}"
+    },
+    {
+      "family": "jsonld",
+      "name": "datatypes: all dateAdded are xsd:date, all CVSS scores xsd:decimal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "jsonld",
+      "name": "missing != empty: no empty-string literal anywhere; CVSS v3.1 node only for the 1,389 CVEs that have one",
+      "ok": true,
+      "detail": "(0, 1389)"
+    },
+    {
+      "family": "jsonld",
+      "name": "three-way: CRITICAL CVEs mapped to an initial-access technique \u2014 SPARQL on JSON-LD == REST filter == pandas",
+      "ok": true,
+      "detail": "(128, 128, 128)"
+    },
+    {
+      "family": "jsonld",
+      "name": "PyLD expand->compact round trip returns the document unchanged (29 CVEs incl. the 2 without CVSS)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "jsonld",
+      "name": "each sampled document parses alone with rdflib (self-contained @context) and gives > 10 triples",
+      "ok": true,
+      "detail": "(32, 93)"
+    },
+    {
+      "family": "jsonld",
+      "name": "facts read back from the JSON-LD graph (id, mappings, techniques, CWEs) == the JSON of the same CVE",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "merge",
+      "name": "same @id in two documents -> one node in the merged graph, with the properties of BOTH (vulnerability link from the technique doc; technique + capabilityGroup from the CVE doc)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "merge",
+      "name": "merged graph is smaller than the sum of the two (shared nodes are not duplicated)",
+      "ok": true,
+      "detail": "(86, 1271, 1344)"
+    },
+    {
+      "family": "dataset",
+      "name": "4 upstream sources with commit and data-file SHA-256 == config/sources.yaml (NVD has 1,391 files: no single hash, by design)",
+      "ok": true,
+      "detail": "['https://github.com/cisagov/kev-data/tree/0cca62ed469c333a45760beeaf35fcc53352aedd', 'https://github.com/mitre-attack/attack-stix-data/tree/6cda5ad8462c79e14fbb872f4e09059b18e0cfc4', 'https://github.com/center-for-threat-informed-defense/mappings-explorer/tree/ddc842aa48c871cbfc2219cdbb842e9a4e155a"
+    },
+    {
+      "family": "dataset",
+      "name": "dataset carries the raw-manifest and cleaning-code SHA-256 of the Phase-2 manifest (covers all 1,391 NVD files)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "dataset",
+      "name": "9 clean tables listed with SHA-256 == Phase-2 manifest and rowCount == rows in the database",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "dataset",
+      "name": "dataset document is valid JSON-LD (no undefined terms) and parses as a dcat:Dataset with 4 prov:wasDerivedFrom",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "dataset",
+      "name": "every dcat:accessURL answers 200 in every advertised media type (the metadata does not lie)",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "perf",
+      "name": "list queries do not grow with page size (5 vs 200 rows): vulnerabilities and techniques",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "perf",
+      "name": "detail queries are constant (<= 12) whatever the number of mappings / references",
+      "ok": true,
+      "detail": "[7, 7, 4, 4]"
+    },
+    {
+      "family": "perf",
+      "name": "latency sanity: every request type has a median below 1 s on the local dev server",
+      "ok": true,
+      "detail": "[20.3, 10.4, 7.4, 7.7, 6.2]"
+    },
+    {
+      "family": "negative",
+      "name": "CVSS score changed by +1 -> compare_vulnerability reports it",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "one PKEV mapping removed -> reported",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "ransomware flag flipped -> reported",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "invented evidence URL -> reported",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "technique loses a CVE -> compare_technique reports it",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "context without 'cveId': undefined_terms flags it",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "the same broken context makes a JSON-LD processor DROP the triple SILENTLY (no error)",
+      "ok": true,
+      "detail": "86 -> 85 triples"
+    },
+    {
+      "family": "negative",
+      "name": "two terms for one IRI ('cveId' and 'ident') -> terms_sharing_an_iri flags it",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "extra key 'foo' in a document -> undefined_terms flags it",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "filter check can fail: pandas set of 'technique=T1190' is not the set of 'T1059'",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "negative",
+      "name": "write attempt (POST) on the read-only API -> 405 and data unchanged",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "clean_manifest_sha256": "c107e694d4fb3e9e232df6fc6cb168af9dbcca288b650e813664d0745568865c"
+}

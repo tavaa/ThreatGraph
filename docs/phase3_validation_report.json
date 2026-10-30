@@ -1,0 +1,160 @@
+{
+  "phase": 3,
+  "django": "5.2.18",
+  "all_passed": true,
+  "summary": [
+    {
+      "family": "answers",
+      "passed": 6,
+      "total": 6
+    },
+    {
+      "family": "content",
+      "passed": 2,
+      "total": 2
+    },
+    {
+      "family": "counts",
+      "passed": 2,
+      "total": 2
+    },
+    {
+      "family": "integrity",
+      "passed": 4,
+      "total": 4
+    },
+    {
+      "family": "load",
+      "passed": 1,
+      "total": 1
+    },
+    {
+      "family": "model",
+      "passed": 5,
+      "total": 5
+    }
+  ],
+  "checks": [
+    {
+      "family": "model",
+      "name": "manage.py check (models + admin)",
+      "ok": true,
+      "detail": "System check identified no issues (0 silenced)."
+    },
+    {
+      "family": "model",
+      "name": "migration files are in sync with models.py",
+      "ok": true,
+      "detail": "No changes detected"
+    },
+    {
+      "family": "model",
+      "name": "10 models (9 clean tables + derived Cwe)",
+      "ok": true,
+      "detail": "['Vulnerability', 'Cwe', 'KevCwe', 'NvdRecord', 'NvdCveCwe', 'AttackTactic', 'AttackTechnique', 'AttackTechniqueTactic', 'PkevMapping', 'PkevMappingReference']"
+    },
+    {
+      "family": "model",
+      "name": "all 10 models registered in the admin",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "model",
+      "name": "make_uml.py runs and writes docs/uml_threatgraph.png",
+      "ok": true,
+      "detail": "saved /home/tavaa/Advanced_data_management/ThreatGraph/docs/uml_threatgraph.png"
+    },
+    {
+      "family": "load",
+      "name": "running the loader twice gives identical counts (idempotent, no duplicates)",
+      "ok": true,
+      "detail": "{'Vulnerability': 1391, 'Cwe': 176, 'KevCwe': 1328, 'NvdRecord': 1391, 'NvdCveCwe': 2523, 'AttackTactic': 14, 'AttackTechnique': 799, 'AttackTechniqueTactic': 1051, 'PkevMapping': 1183, 'PkevMappingReference': 2256}"
+    },
+    {
+      "family": "counts",
+      "name": "DB rows == clean rows for all 9 tables + Cwe == distinct cwe ids",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "counts",
+      "name": "row counts == pinned expectations in config/sources.yaml",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "content",
+      "name": "DB \u2192 CSV bytes == Phase-2 manifest SHA-256, all 9 tables (lossless load)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "content",
+      "name": "Cwe.is_informative == (id not NVD-CWE-noinfo/Other)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "PRAGMA foreign_key_check returns no violation",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "integrity",
+      "name": "every CharField max_length >= longest stored value",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "family": "integrity",
+      "name": "10 constraint / validator / on_delete tests behave as designed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "integrity",
+      "name": "negative tests left the database unchanged (rolled back)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "answers",
+      "name": "ORM answers == notebook 03 / pinned numbers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "answers",
+      "name": "GET /stats/ -> 200 and counts == database",
+      "ok": true,
+      "detail": "{'Vulnerability': 1391, 'Cwe': 176, 'KevCwe': 1328, 'NvdRecord': 1391, 'NvdCveCwe': 2523, 'AttackTactic': 14, 'AttackTechnique': 799, 'AttackTechniqueTactic': 1051, 'PkevMapping': 1183, 'PkevMappingReference': 2256}"
+    },
+    {
+      "family": "answers",
+      "name": "GET /vulnerability/CVE-2024-34102/ -> 200 with KEV, NVD and ATT&CK parts",
+      "ok": true,
+      "detail": "['cve_id', 'kev', 'nvd', 'attack', 'pkev_note']"
+    },
+    {
+      "family": "answers",
+      "name": "an unmapped CVE returns attack == [] (not mapped by PKEV)",
+      "ok": true,
+      "detail": "CVE-2002-0367"
+    },
+    {
+      "family": "answers",
+      "name": "unknown CVE -> 404",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "family": "answers",
+      "name": "/ redirects to /admin/",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "clean_manifest_sha256": "c107e694d4fb3e9e232df6fc6cb168af9dbcca288b650e813664d0745568865c"
+}

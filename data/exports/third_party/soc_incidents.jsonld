@@ -1,0 +1,210 @@
+{
+ "@context": {
+  "soc": "http://example.org/soc#",
+  "Incident": "soc:Incident",
+  "status": "soc:status",
+  "system": "soc:system",
+  "openedOn": {
+   "@id": "soc:openedOn",
+   "@type": "http://www.w3.org/2001/XMLSchema#date"
+  },
+  "exploits": {
+   "@id": "soc:exploits",
+   "@type": "@id"
+  }
+ },
+ "@graph": [
+  {
+   "@id": "urn:example-soc:incident:INC-001",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "web-10",
+   "openedOn": "2025-07-01",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2024-4761"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-002",
+   "@type": "Incident",
+   "status": "open",
+   "system": "vpn-11",
+   "openedOn": "2025-07-04",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2018-4939"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-003",
+   "@type": "Incident",
+   "status": "open",
+   "system": "mail-12",
+   "openedOn": "2025-07-07",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2011-2462"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-004",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "file-13",
+   "openedOn": "2025-07-10",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2025-25257"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-005",
+   "@type": "Incident",
+   "status": "open",
+   "system": "erp-14",
+   "openedOn": "2025-07-13",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2021-37975"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-006",
+   "@type": "Incident",
+   "status": "open",
+   "system": "web-15",
+   "openedOn": "2025-07-16",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2021-28550"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-007",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "vpn-16",
+   "openedOn": "2025-07-19",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2021-26085"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-008",
+   "@type": "Incident",
+   "status": "open",
+   "system": "mail-17",
+   "openedOn": "2025-07-22",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2019-19781"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-009",
+   "@type": "Incident",
+   "status": "open",
+   "system": "file-18",
+   "openedOn": "2025-07-25",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2025-24993"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-010",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "erp-19",
+   "openedOn": "2025-07-28",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2018-11776"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-011",
+   "@type": "Incident",
+   "status": "open",
+   "system": "web-20",
+   "openedOn": "2025-07-31",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2024-57727"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-012",
+   "@type": "Incident",
+   "status": "open",
+   "system": "vpn-21",
+   "openedOn": "2025-08-03",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2023-48788"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-013",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "mail-22",
+   "openedOn": "2025-08-06",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2017-11292"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-014",
+   "@type": "Incident",
+   "status": "open",
+   "system": "file-23",
+   "openedOn": "2025-08-09",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2024-21413"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-015",
+   "@type": "Incident",
+   "status": "open",
+   "system": "erp-24",
+   "openedOn": "2025-08-12",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2023-0669"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-016",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "web-25",
+   "openedOn": "2025-08-15",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2012-2034"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-017",
+   "@type": "Incident",
+   "status": "open",
+   "system": "vpn-26",
+   "openedOn": "2025-08-18",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2012-1535"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-018",
+   "@type": "Incident",
+   "status": "open",
+   "system": "mail-27",
+   "openedOn": "2025-08-21",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2017-5638"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-019",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "file-28",
+   "openedOn": "2025-08-24",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2021-22900"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-020",
+   "@type": "Incident",
+   "status": "open",
+   "system": "erp-29",
+   "openedOn": "2025-08-27",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2021-27065"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-021",
+   "@type": "Incident",
+   "status": "open",
+   "system": "web-30",
+   "openedOn": "2025-08-30",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2023-36845"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-022",
+   "@type": "Incident",
+   "status": "closed",
+   "system": "vpn-31",
+   "openedOn": "2025-09-02",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2024-26169"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-023",
+   "@type": "Incident",
+   "status": "open",
+   "system": "mail-32",
+   "openedOn": "2025-09-05",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2012-0754"
+  },
+  {
+   "@id": "urn:example-soc:incident:INC-024",
+   "@type": "Incident",
+   "status": "open",
+   "system": "file-33",
+   "openedOn": "2025-09-08",
+   "exploits": "https://nvd.nist.gov/vuln/detail/CVE-2023-7024"
+  }
+ ]
+}
